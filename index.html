@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Web App Esempio - Media + Testo</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="dot"></span>
+      <span class="brand-title">Web App • Esempio</span>
+    </div>
+    <nav class="top-actions">
+      <a class="ghost" href="approfondimento.html" title="Apri approfondimento">Approfondimento</a>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <section class="card layout">
+      <!-- MEDIA -->
+      <div class="media">
+        <div class="media-frame" id="mediaFrame" aria-label="Area media">
+          <!-- Default: immagine -->
+          <img id="heroImage" class="hero" src="assets/placeholder.jpg" alt="Immagine principale" />
+
+          <!-- Mappa -->
+          <div id="mapWrap" class="embed hidden" aria-hidden="true">
+            <iframe
+              id="mapFrame"
+              title="Google Maps"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src=""
+            ></iframe>
+          </div>
+
+          <!-- Video -->
+          <div id="videoWrap" class="embed hidden" aria-hidden="true">
+            <iframe
+              id="videoFrame"
+              title="Video"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              src=""
+            ></iframe>
+          </div>
+
+          <!-- 3D -->
+          <div id="threeWrap" class="three hidden" aria-hidden="true">
+            <canvas id="threeCanvas" aria-label="Canvas 3D"></canvas>
+            <div class="three-hint">
+              <strong>3D demo</strong> (Three.js): qui puoi caricare una mesh <code>.glb</code> o <code>.gltf</code> più avanti.
+            </div>
+          </div>
+
+          <div class="badge" id="modeBadge">IMMAGINE</div>
+        </div>
+
+        <!-- toolbar -->
+        <div class="toolbar" role="toolbar" aria-label="Azioni media">
+          <button class="tool active" data-mode="image" aria-pressed="true">
+            <span class="num">0</span>
+            <span class="lbl">Immagine</span>
+          </button>
+          <button class="tool" data-mode="map" aria-pressed="false">
+            <span class="num">1</span>
+            <span class="lbl">Mappa</span>
+          </button>
+          <button class="tool" data-mode="video" aria-pressed="false">
+            <span class="num">2</span>
+            <span class="lbl">Video</span>
+          </button>
+          <button class="tool" data-mode="three" aria-pressed="false">
+            <span class="num">3</span>
+            <span class="lbl">3D</span>
+          </button>
+          <a class="tool link" href="approfondimento.html" title="Apri pagina di approfondimento">
+            <span class="num">4</span>
+            <span class="lbl">Approf.</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- TESTO -->
+      <aside class="panel">
+        <div class="panel-inner">
+          <h1 id="title">TESTO</h1>
+          <p class="lead" id="subtitle">
+            Questo è un esempio: qui incollerai il testo vero della tappa (storia, luogo, cosa vedere, ecc.).
+          </p>
+
+          <div class="divider"></div>
+
+          <div class="content" id="content">
+            <p>
+              <strong>Come funziona:</strong> clicca le icone numerate sotto l’immagine.
+              <ul>
+                <li><strong>1</strong> sostituisce l’immagine con una <em>mappa Google</em> (embed).</li>
+                <li><strong>2</strong> mostra un <em>video</em> (YouTube/Vimeo/embed).</li>
+                <li><strong>3</strong> mostra una <em>scena 3D</em> (demo Three.js).</li>
+                <li><strong>4</strong> apre una nuova pagina di approfondimento.</li>
+              </ul>
+            </p>
+
+            <p class="note">
+              Nota: Google Maps qui usa un <em>embed</em> (non serve API key). Se vuoi funzioni avanzate (marker dinamici, geolocalizzazione, ecc.),
+              si passa alla Maps JS API con chiave.
+            </p>
+          </div>
+
+          <div class="actions">
+            <button class="primary" id="btnReplaceText">Simula “incolla testo”</button>
+            <button class="secondary" id="btnReplaceImage">Simula “cambia immagine”</button>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Template pronto per essere riempito con <strong>tua immagine</strong>, <strong>tuo testo</strong>, <strong>tua mappa</strong>, <strong>tuo video</strong>, <strong>tua mesh 3D</strong>.</span>
+  </footer>
+
+  <!-- Three.js (CDN) -->
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+
+  <script src="js/three_scene.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
